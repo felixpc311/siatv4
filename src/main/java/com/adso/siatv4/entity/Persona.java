@@ -22,19 +22,21 @@ public abstract class Persona {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 10)
     private String dni;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
     private String apellido1;
-    @Column(nullable = true)
+    @Column(nullable = true, length = 50)
     private String apellido2;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
     private String nombre1;
-    @Column(nullable = true)
+    @Column(nullable = true, length = 50)
     private String nombre2;
 
+    @Column(nullable = true, length = 100)
     private String email;
-    private Integer telefono;
+    @Column(nullable = false, length = 10)
+    private String telefono;
 }
 
