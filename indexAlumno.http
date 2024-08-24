@@ -1,0 +1,41 @@
+###
+GET http://localhost:8080/api/v4/alumnos
+Content-Type: application/json
+
+###
+POST http://localhost:8080/api/v4/alumnos
+Content-Type: application/json
+
+{
+    "dni": "45543563",
+    "apellido1": "Puello",
+    "apellido2": "zabaleta",
+    "nombre1": "Vivian",
+    "nombre2": "Isabel",
+    "email": "vpz@gmail.com",
+    "telefono": "3156841522"
+}
+
+###
+GET  http://localhost:8080/api/v4/alumnos/getByDni/73192442
+Content-Type: application/json
+
+
+###
+GET http://localhost:8080/api/v4/alumnos/1
+Content-Type: application/json
+
+
+###
+PUT  http://localhost:8080/api/v4/alumnos/1/update
+Content-Type: application/json
+
+{
+    "dni": "73192442",
+    "apellido1": "Puello",
+    "apellido2": "Choperena",
+    "nombre1": "Felix",
+    "nombre2": "Mauricio",
+    "email": "felixpuello@gmail.com",
+    "telefono": "3163159281"
+}
