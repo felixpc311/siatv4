@@ -36,11 +36,6 @@ public class AnioLectivo {
     @OneToMany(mappedBy ="anioLectivo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Matricula> matriculas;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(
-        name = "periodo_anio_lectivo",
-        joinColumns = @JoinColumn(name = "anio_lectivo_id"),
-        inverseJoinColumns = @JoinColumn(name = "periodo_id")
-    )
-    private List<Periodo> periodos;
+    @OneToMany(mappedBy ="anioLectivo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    List<PeriodoAnioLectivo> periodosAniosLectivos;
 }

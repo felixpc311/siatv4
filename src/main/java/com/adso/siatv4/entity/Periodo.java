@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
@@ -41,12 +42,7 @@ public class Periodo {
     @Column(nullable = false, unique = true, length = 1)
     private Integer periodoCodigo;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(
-        name = "periodo_anio_lectivo",
-        joinColumns = @JoinColumn(name = "periodo_id"),
-        inverseJoinColumns = @JoinColumn(name = "anio_lectivo_id")
-    )
-    private List<AnioLectivo> anioLectivos;
+    @OneToMany(mappedBy = "periodo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    List<PeriodoAnioLectivo> periodosAniosLectivos;
     
 }
