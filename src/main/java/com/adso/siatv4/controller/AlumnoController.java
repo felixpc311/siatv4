@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.adso.siatv4.entity.Alumno;
+import com.adso.siatv4.projections.AlumnoProjections.AlumnoIdAndNames;
 import com.adso.siatv4.response.ResponseHandler;
 import com.adso.siatv4.service.AlumnoService;
 import com.adso.siatv4.utility.Utilities;
@@ -48,7 +49,7 @@ public class AlumnoController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Object> getById(@PathVariable Long id) {
-        Alumno alumno = alumnoService.findById(id);
+        AlumnoIdAndNames alumno = alumnoService.findAlumnoById(id);
         return alumno == null ? ResponseHandler.generateResponseError(
                 Utilities.MESSAGE_NOT_FOUND,
                 HttpStatus.NOT_FOUND)

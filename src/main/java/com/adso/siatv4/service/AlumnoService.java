@@ -1,11 +1,11 @@
 package com.adso.siatv4.service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.adso.siatv4.entity.Alumno;
+import com.adso.siatv4.projections.AlumnoProjections.AlumnoIdAndNames;
 import com.adso.siatv4.repository.AlumnoRepository;
 
 @Service
@@ -36,5 +36,9 @@ public class AlumnoService {
 
     public Alumno findById(Long id) {
         return alumnoRepository.findById(id).orElse(null);
+    }
+
+    public AlumnoIdAndNames findAlumnoById(Long id) {
+        return alumnoRepository.findAlumnoById(id).orElse(null);
     }
 }
